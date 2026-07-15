@@ -4,18 +4,30 @@ public class PaseoLacustre extends ServicioTuristico {
 
     private String lago;
 
-    public PaseoLacustre(String nombre, double precio, String duracion, String lago) {
-        super(nombre, precio, duracion);
+    public PaseoLacustre(String nombre,
+                         double precio,
+                         GuiaTuristico guia,
+                         String lago) {
+
+        super(nombre, precio, guia);
+        this.lago = lago;
+
+    }
+
+    public String getLago() {
+        return lago;
+    }
+
+    public void setLago(String lago) {
         this.lago = lago;
     }
 
     @Override
-    public void mostrarInformacion() {
-        System.out.println("=== Paseo Lacustre ===");
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Precio: $" + precio);
-        System.out.println("Duración: " + duracion);
-        System.out.println("Lago: " + lago);
-        System.out.println();
+    public String descripcion() {
+
+        return super.descripcion() +
+                "\nLago: " + lago;
+
     }
+
 }

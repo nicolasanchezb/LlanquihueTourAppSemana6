@@ -2,20 +2,32 @@ package model;
 
 public class RutaGastronomica extends ServicioTuristico {
 
-    private String especialidad;
+    private int restaurantes;
 
-    public RutaGastronomica(String nombre, double precio, String duracion, String especialidad) {
-        super(nombre, precio, duracion);
-        this.especialidad = especialidad;
+    public RutaGastronomica(String nombre,
+                            double precio,
+                            GuiaTuristico guia,
+                            int restaurantes) {
+
+        super(nombre, precio, guia);
+        this.restaurantes = restaurantes;
+
+    }
+
+    public int getRestaurantes() {
+        return restaurantes;
+    }
+
+    public void setRestaurantes(int restaurantes) {
+        this.restaurantes = restaurantes;
     }
 
     @Override
-    public void mostrarInformacion() {
-        System.out.println("=== Ruta Gastronómica ===");
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Precio: $" + precio);
-        System.out.println("Duración: " + duracion);
-        System.out.println("Especialidad: " + especialidad);
-        System.out.println();
+    public String descripcion() {
+
+        return super.descripcion() +
+                "\nRestaurantes: " + restaurantes;
+
     }
+
 }
